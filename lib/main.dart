@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui/screen/call_screen.dart';
 import 'package:whatsapp_ui/screen/chat_screen.dart';
 import 'package:whatsapp_ui/screen/status_screen.dart';
 import 'package:whatsapp_ui/shared/constants.dart';
@@ -91,7 +92,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           Icon(Icons.camera_alt),
           ChatScreen(),
           StatusScreen(),
-          Text("Call Screen"),
+          CallScreen(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
