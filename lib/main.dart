@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_ui/screen/chat_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,10 +27,28 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   Color whatsAppGreen = Color.fromRGBO(18, 140, 126, 1.0);
   Color whatsAppGreenLight = Color.fromRGBO(37, 211, 102, 1.0);
   TabController tabController;
+  var fabIcon = Icons.message;
   @override
   void initState() {
     super.initState();
-    tabController = TabController(vsync: this, length: 4);
+    tabController = TabController(vsync: this, length: 4)
+      ..addListener(() {
+        setState(() {
+          switch (tabController.index) {
+            case 0:
+              break;
+            case 1:
+              fabIcon = Icons.message;
+              break;
+            case 2:
+              fabIcon = Icons.camera_enhance;
+              break;
+            case 3:
+              fabIcon = Icons.call;
+              break;
+          }
+        });
+      });
   }
 
   @override
@@ -70,10 +89,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         controller: tabController,
         children: [
           Icon(Icons.camera_alt),
-          Text("Chat Screen"),
+          ChatScreen(),
           Text("Status Screen"),
           Text("Call Screen"),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(fabIcon),
+        backgroundColor: whatsAppGreenLight,
       ),
     );
   }
