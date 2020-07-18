@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/screen/chat_screen.dart';
+import 'package:whatsapp_ui/screen/status_screen.dart';
+import 'package:whatsapp_ui/shared/constants.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,8 +26,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  Color whatsAppGreen = Color.fromRGBO(18, 140, 126, 1.0);
-  Color whatsAppGreenLight = Color.fromRGBO(37, 211, 102, 1.0);
   TabController tabController;
   var fabIcon = Icons.message;
   @override
@@ -90,7 +90,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         children: [
           Icon(Icons.camera_alt),
           ChatScreen(),
-          Text("Status Screen"),
+          StatusScreen(),
           Text("Call Screen"),
         ],
       ),
